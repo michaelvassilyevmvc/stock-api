@@ -29,7 +29,6 @@ namespace OzonEdu.StockApi
                
             }
 
-            // app.UseHttpsRedirection();
 
             app.UseRouting();
 
