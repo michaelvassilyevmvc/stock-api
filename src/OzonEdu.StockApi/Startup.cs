@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 namespace OzonEdu.StockApi
 {
@@ -19,10 +18,7 @@ namespace OzonEdu.StockApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "OzonEdu.StockApi", Version = "v1" });
-            });
+            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -30,8 +26,7 @@ namespace OzonEdu.StockApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OzonEdu.StockApi v1"));
+               
             }
 
             app.UseHttpsRedirection();
